@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('information', function (Blueprint $table) {
-            $table->id();
+        Schema::create('daftar_daerah', function (Blueprint $table) {
+            $table->string('kode', 4)->nullable();
+            $table->string('kabupaten_kota', 36);
+            $table->string('provinsi', 26)->nullable();
             $table->timestamps();
         });
     }
@@ -22,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('information');
+        Schema::dropIfExists('daftar_daerah');
     }
 };

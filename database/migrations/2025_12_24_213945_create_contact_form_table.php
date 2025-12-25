@@ -11,9 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('instansis', function (Blueprint $table) {
+        Schema::create('contact_form', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('name', 25);
+            $table->string('email', 25);
+            $table->string('phone', 50)->nullable();
+            $table->text('message')->nullable();
+            $table->timestamps('created_at')->useCurrent();
         });
     }
 
@@ -22,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('instansis');
+        Schema::dropIfExists('contact_form');
     }
 };
