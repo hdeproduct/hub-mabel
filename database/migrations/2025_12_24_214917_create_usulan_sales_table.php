@@ -12,16 +12,21 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('usulan_sales', function (Blueprint $table) {
-    $table->id();
-    $table->string('code_usulan', 20)->unique();
-    $table->foreignId('user_id')->constrained('users');
-    $table->string('customer_name', 100);
-    $table->string('city', 50);
-    $table->decimal('estimated_value', 15, 2);
-    $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
-    $table->text('description')->nullable();
-    $table->timestamps();
-});
+            $table->id();
+            $table->foreignId('user_id', 11)->constrained('users');
+            $table->string('request_produk');
+            $table->text('spesifikasi');
+            $table->integer('vol');
+            $table->decimal('harga_satuan', 15, 2);
+            $table->decimal('total', 15, 2)->storedAs('vol * harga_satuan')->nullable();
+            $table->string('gambar');
+            $table->string('referensi_ekatalog')->nullable()->default();
+            $table->string('referensi_tokped')->nullable()->default();
+            $table->enum('status', ['On Going', 'Pending', 'Decline', 'Success'])->nullable()->default('Pending');
+            $table->timestamp('created_at')->nullable();
+            $table->string('nama_dinas_user');
+            $table->foreignId('code_usulan', 20);
+        });
     }
 
     /**

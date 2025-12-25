@@ -12,10 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('daftar_daerah', function (Blueprint $table) {
-            $table->string('kode', 4)->nullable();
-            $table->string('kabupaten_kota', 36);
-            $table->string('provinsi', 26)->nullable();
-            $table->timestamps();
+            $table->string('kode', 4)->nullable()->default();
+            $table->string('kabupaten_kota', 36)->primary();
+            $table->string('provinsi', 26)->nullable()->default();
         });
     }
 

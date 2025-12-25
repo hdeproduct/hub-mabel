@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('contact_form', function (Blueprint $table) {
+        Schema::create('kegiatan_status', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email');
-            $table->string('phone', 50)->nullable()->default();
-            $table->text('message')->nullable()->default(null);
             $table->timestamp('created_at')->nullable();
         });
     }
@@ -26,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('contact_form');
+        Schema::dropIfExists('kegiatan_status');
     }
 };
