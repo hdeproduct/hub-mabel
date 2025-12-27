@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('email', 100)->unique();
             $table->string('password');
             $table->enum('role', ['admin', 'user', 'superadmin'])->nullable()->default('user');
-            $table->timestamp('created_at');
+            $table->timestamps();
             $table->rememberToken()->nullable()->default();
         });
 
