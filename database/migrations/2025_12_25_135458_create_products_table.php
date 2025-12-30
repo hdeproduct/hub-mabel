@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('link_ekatalog', 500);
             $table->string('category');
             $table->string('merek');
+            $table->timestamps();
         });
     }
 

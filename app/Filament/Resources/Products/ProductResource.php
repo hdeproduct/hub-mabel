@@ -2,23 +2,44 @@
 
 namespace App\Filament\Resources\Products;
 
-use App\Filament\Resources\Products\Pages\CreateProduct;
+use BackedEnum;
+use App\Models\Product;
+use Filament\Tables\Table;
+use Filament\Schemas\Schema;
+use App\Imports\ProductImport;
+use Filament\Tables\Actions\EditAction;
+use Filament\Resources\Resource;
+use Filament\Actions\CreateAction;
+use Filament\Actions\ImportAction;
+use Filament\Support\Icons\Heroicon;
 use App\Filament\Resources\Products\Pages\EditProduct;
 use App\Filament\Resources\Products\Pages\ListProducts;
+use App\Filament\Resources\Products\Pages\CreateProduct;
 use App\Filament\Resources\Products\Schemas\ProductForm;
 use App\Filament\Resources\Products\Tables\ProductsTable;
-use App\Models\Product;
-use BackedEnum;
-use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
-use Filament\Tables\Table;
 
 class ProductResource extends Resource
 {
     protected static ?string $model = Product::class;
 
+    protected static string $resource = Product::class;
+
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            CreateAction::make(),
+            ImportAction::make()
+                ->processWith(ProductImport::class)
+                ->color('primary')
+                ->options([
+                    'heading_row' => 1,
+                    'skip_empty_rows' => true,
+                ])
+                ->label('Import Produk'),
+        ];
+    }
 
     public static function form(Schema $schema): Schema
     {

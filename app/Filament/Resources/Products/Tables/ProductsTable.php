@@ -14,6 +14,26 @@ class ProductsTable
     {
         return $table
             ->columns([
+                TextColumn::make('nama_produk')
+                    ->label("Nama Produk")
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('spesifikasi')
+                    ->label("Spesifikasi")
+                    ->limit(50)
+                    ->searchable(),
+                TextColumn::make('link_ekatalog')
+                    ->label("Link e-Katalog")
+                    ->limit(50)
+                    ->searchable(),
+                TextColumn::make('category')
+                    ->label("Kategori")
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('merek')
+                    ->label("Merek")
+                    ->searchable()
+                    ->sortable(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

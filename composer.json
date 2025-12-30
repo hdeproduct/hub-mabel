@@ -10,7 +10,10 @@
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1",
         "filament/filament": "4.0",
-        "openplain/filament-shadcn-theme": "^1.0"
+        "openplain/filament-shadcn-theme": "^1.0",
+        "eightynine/filament-excel-import": "^4.0",
+        "phpoffice/phpspreadsheet": "^1.30",
+        "spatie/laravel-permission": "^6.24"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
