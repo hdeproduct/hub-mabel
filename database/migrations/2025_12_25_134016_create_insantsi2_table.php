@@ -24,6 +24,8 @@ return new class extends Migration
             $table->enum('pic_role', ['Kepala', 'Staff'])->nullable();
             $table->enum('status_market', ['Cold', 'Warm', 'Hot'])->nullable()->default('Cold');
             $table->string('status_ring')->nullable()->default();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

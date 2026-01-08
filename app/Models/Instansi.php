@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Instansi extends Model
 {
     use SoftDeletes;        
-    protected $table = 'insantsi2';
+    protected $table = 'instansi2';
     protected $fillable = [
         'city',
         'kpld',
@@ -22,4 +22,9 @@ class Instansi extends Model
         'status_market',
         'status_ring',
     ];
+    
+    public function daftar_daerah()
+    {
+        return $this->belongsTo(DaftarDaerah::class, 'city', 'kabupaten_kota');
+    }
 }
