@@ -2,13 +2,14 @@
 
 namespace App\Filament\Resources\Instansis\Tables;
 
+use Filament\Tables\Table;
+use Filament\Actions\EditAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
-use Filament\Actions\EditAction;
-use Filament\Actions\ForceDeleteBulkAction;
 use Filament\Actions\RestoreBulkAction;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\TrashedFilter;
-use Filament\Tables\Table;
+use Filament\Actions\ForceDeleteBulkAction;
 
 class InstansisTable
 {
@@ -16,7 +17,10 @@ class InstansisTable
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('klpd')
+                    ->label("KLPD")
+                    ->searchable()
+                    ->sortable(),
             ])
             ->filters([
                 TrashedFilter::make(),

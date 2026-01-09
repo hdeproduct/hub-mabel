@@ -21,5 +21,20 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+
+        KLPD::factory()->createMany([
+            ['name' => 'Kementerian'],
+            ['name' => 'Lembaga'],
+            ['name' => 'Provinsi'],
+            ['name' => 'Kota'],
+            ['name' => 'Kabupaten'],
+            ['name' => 'BUMN'],
+            ['name' => 'BUMD'],
+            ['name' => 'PTNBH'],
+            ['name' => 'Swasta'],
+            ['name' => 'B2B'],
+            ['name' => 'Kesehatan'],
+            ['name' => 'Lainnya'],
+        ]);
     }
 }

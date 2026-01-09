@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Instansis\Schemas;
 
+use EightyNine\ExcelImport\ExcelImportAction;
 use Filament\Schemas\Schema;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -12,6 +13,17 @@ class InstansiForm
     {
         return $schema
             ->components([
+                ExcelImportAction::make()
+                    ->label("Klik Disini untuk Download & Import ")
+                    ->color("primary")
+                    ->sampleExcel(
+                        sampleData: [
+                            ['city', 'klpd', 'institusi_kerja', 'satuan_kerja', 'pic_name', 'pic_phone', 'pic_position', 'pic_role', 'status_ring'],
+                            ['Kota A', 'Kementerian', 'Institusi A', 'Satuan A', 'PIC A', '081234567890', 'Jabatan A', 'Kepala', 'Ring 1'],
+                            ['Kabupaten B', 'Lembaga', 'Institusi B', 'Satuan B', 'PIC B', '089876543210', 'Jabatan B', 'Staff', 'Ring 2'],
+                        ],
+                        fileName: 'template_insert_data_instansi.xlsx',
+                    ),
                 // Define form components here
                 Select::make('city')
                 ->relationship('daftar_daerah', 'kabupaten_kota')
