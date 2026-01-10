@@ -17,10 +17,8 @@ class InstansisTable
     {
         return $table
             ->columns([
-                TextColumn::make('klpd')
-                    ->label("KLPD")
-                    ->searchable()
-                    ->sortable(),
+                TextColumn::make('daftar_daerah.kabupaten_kota')->label('Kota/Kabupaten')->searchable(),
+                 
             ])
             ->filters([
                 TrashedFilter::make(),

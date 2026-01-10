@@ -11,7 +11,7 @@ class Instansi extends Model
     protected $table = 'instansi2';
     protected $fillable = [
         'city',
-        'kpld',
+        'klpd',
         'institusi_kerja',
         'satuan_kerja',
         'code_dinas',
@@ -26,5 +26,10 @@ class Instansi extends Model
     public function daftar_daerah()
     {
         return $this->belongsTo(DaftarDaerah::class, 'city', 'kabupaten_kota');
+    }
+
+    public function klpd()
+    {
+        return $this->belongsTo(Klpd::class, 'klpd');
     }
 }

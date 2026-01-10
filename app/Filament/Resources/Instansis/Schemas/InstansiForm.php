@@ -31,22 +31,9 @@ class InstansiForm
                 ->placeholder('Masukan Kota/Kabupaten')
                 ->required(),
                 Select::make('klpd')
+                ->relationship('klpd', 'name')
                 ->label('KLPD')
                 ->placeholder('Masukan KLPD')
-                ->options([
-                    'Kementerian' => 'Kementerian',
-                    'Lembaga' => 'Lembaga',
-                    'Provinsi' => 'Provinsi',
-                    'Kota' => 'Kota',
-                    'Kabupaten' => 'Kabupaten',
-                    'BUMN' => 'BUMN',
-                    'BUMD' => 'BUMD',
-                    'PTNBH' => 'PTNBH',
-                    'Swasta' => 'Swasta',
-                    'B2B' => 'B2B',
-                    'Kesehatan' => 'Kesehatan',
-                    'Lainnya' => 'Lainnya',
-                ])
                 ->required(),
                 TextInput::make('institusi_kerja')
                 ->label('Institusi Kerja')
