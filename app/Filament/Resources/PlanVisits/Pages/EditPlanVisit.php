@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\EditUsers\Pages;
+namespace App\Filament\Resources\PlanVisits\Pages;
 
-use App\Filament\Resources\EditUsers\EditUserResource;
+use App\Filament\Resources\PlanVisits\PlanVisitResource;
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 
-class EditEditUser extends EditRecord
+class EditPlanVisit extends EditRecord
 {
-    protected static string $resource = EditUserResource::class;
+    protected static string $resource = PlanVisitResource::class;
 
     protected function getHeaderActions(): array
     {

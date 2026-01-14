@@ -13,6 +13,7 @@ return new class extends Migration {
         Schema::create('plan_visit', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->nullable()->default();
+            // $table->foreignId('instansi_id')->constrained('instansi2')->nullable()->default();
             $table->date('visit_date')->nullable();
             $table->string('city')->nullable()->default();
             $table->string('klpd')->nullable()->default(); // Kategori (Kementerian/Lembaga/Dinas)
