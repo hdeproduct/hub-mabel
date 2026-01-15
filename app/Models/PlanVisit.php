@@ -16,8 +16,12 @@ class PlanVisit extends Model
         'status_ring',
     ];
 
-    public function instansi()
+    public function dailytotal()
     {
-        return $this->belongsTo(Instansi::class);
+        return $this->hasOne(
+            VisitDailyTotal::class,
+            'visit_date',
+            'visit_date'
+        )->whereColumn('visit_daily_totals.user_id', 'plan_visits.user_id');
     }
 }

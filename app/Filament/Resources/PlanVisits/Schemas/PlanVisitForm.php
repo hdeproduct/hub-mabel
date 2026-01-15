@@ -26,9 +26,14 @@ class PlanVisitForm
                             ->label('Tanggal Kunjungan')
                             ->placeholder('Pilih Tanggal Kunjungan')
                             ->required(),
-                        Select::make('instansi_id')
+                        Select::make('satuan_kerja')
                             ->label('Satuan Kerja')
-                            ->relationship('instansi', 'satuan_kerja')
+                            ->options(
+                                Instansi::query()
+                                    ->distinct()
+                                    ->pluck('satuan_kerja', 'id')
+                                    ->toArray()
+                            )
                             ->searchable()
                             ->reactive()
                             ->afterStateUpdated(function ($state, callable $set) {

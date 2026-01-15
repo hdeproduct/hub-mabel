@@ -2,17 +2,18 @@
 
 namespace App\Filament\Resources\PlanVisits;
 
-use App\Filament\Resources\PlanVisits\Pages\CreatePlanVisit;
+use BackedEnum;
+use App\Models\PlanVisit;
+use Filament\Tables\Table;
+use Filament\Schemas\Schema;
+use Filament\Resources\Resource;
+use Filament\Support\Icons\Heroicon;
+use Filament\Tables\Columns\TextColumn;
 use App\Filament\Resources\PlanVisits\Pages\EditPlanVisit;
 use App\Filament\Resources\PlanVisits\Pages\ListPlanVisits;
+use App\Filament\Resources\PlanVisits\Pages\CreatePlanVisit;
 use App\Filament\Resources\PlanVisits\Schemas\PlanVisitForm;
 use App\Filament\Resources\PlanVisits\Tables\PlanVisitsTable;
-use App\Models\PlanVisit;
-use BackedEnum;
-use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
-use Filament\Tables\Table;
 
 class PlanVisitResource extends Resource
 {
